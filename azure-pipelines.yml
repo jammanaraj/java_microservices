@@ -22,7 +22,7 @@ stages:
     steps:
     - task: Maven@4
       inputs:
-        mavenPomFile: 'pom.xml'
+        mavenPomFile: '$(System.Defaultworkingdirectory)/start/pom.xml'
         goals: 'clean package'
         publishJUnitResults: false
         javaHomeOption: 'JDKVersion'
