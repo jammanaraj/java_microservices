@@ -31,19 +31,21 @@ stages:
         effectivePomSkip: false
         sonarQubeRunAnalysis: false
     - task: Docker@2
-      displayName: Build an image
+      displayName: Build inventory
       inputs:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/start/inventory/Dockerfile'
         imageName: jammanaraj/inventory
         tags: latest 
     - task: Docker@2
+      displayName: Build system
       inputs:
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/start/system/Dockerfile'
         imageName: jammanaraj/system
-        tags: 'latest'
+        tags: latest
     - task: Docker@2
+      displayName: push to docker hub
       inputs:
         containerRegistry: 'Docker_ACR'
         repository: 'jammanaraj/myfirstcontainerimage'
