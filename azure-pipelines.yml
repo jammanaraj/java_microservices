@@ -49,5 +49,5 @@ stages:
         repository: 'jammanaraj/myfirstcontainerimage'
         command: 'push'
         tags: |
-          system:latest
-          inventory:latest
+          jammanaraj/system:latest
+          jammanaraj/inventory:latest
