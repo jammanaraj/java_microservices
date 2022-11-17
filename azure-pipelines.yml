@@ -20,30 +20,30 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-    - task: Maven@4
-      inputs:
-        mavenPomFile: '$(System.Defaultworkingdirectory)/start/pom.xml'
-        goals: 'clean package'
-        publishJUnitResults: false
-        javaHomeOption: 'JDKVersion'
-        mavenVersionOption: 'Default'
-        mavenAuthenticateFeed: false
-        effectivePomSkip: false
-        sonarQubeRunAnalysis: false
-    - task: Docker@2
-      displayName: Build inventory
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/start/inventory/Dockerfile'
-       # imageName: jammanaraj/inventory
-        tags: inventory 
-    - task: Docker@2
-      displayName: Build system
-      inputs:
-        command: 'buildAndPush'
-        Dockerfile: '$(Build.SourcesDirectory)/start/system/Dockerfile'
-      #  imageName: jammanaraj/system
-        tags: system
+    # - task: Maven@4
+    #   inputs:
+    #     mavenPomFile: '$(System.Defaultworkingdirectory)/start/pom.xml'
+    #     goals: 'clean package'
+    #     publishJUnitResults: false
+    #     javaHomeOption: 'JDKVersion'
+    #     mavenVersionOption: 'Default'
+    #     mavenAuthenticateFeed: false
+    #     effectivePomSkip: false
+    #     sonarQubeRunAnalysis: false
+    # - task: Docker@2
+    #   displayName: Build inventory
+    #   inputs:
+    #     command: build
+    #     dockerfile: '$(Build.SourcesDirectory)/start/inventory/Dockerfile'
+    #    # imageName: jammanaraj/inventory
+    #     tags: inventory 
+    # - task: Docker@2
+    #   displayName: Build system
+    #   inputs:
+    #     command: 'buildAndPush'
+    #     Dockerfile: '$(Build.SourcesDirectory)/start/system/Dockerfile'
+    #   #  imageName: jammanaraj/system
+    #     tags: system
     - task: Docker@2
       displayName: push to docker hub
       inputs:
@@ -51,5 +51,5 @@ stages:
         repository: 'jammanaraj/myfirstcontainerimage'
         command: 'push'
         tags: |
-          jammanaraj/myfirstcontainerimage:system
-          jammanaraj/myfirstcontainerimage:inventory
+          system
+          inventory
