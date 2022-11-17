@@ -45,11 +45,18 @@ stages:
     #   #  imageName: jammanaraj/system
     #     tags: system
     - task: Docker@2
-      displayName: push to docker hub
       inputs:
         containerRegistry: 'Docker_ACR'
         repository: 'jammanaraj/myfirstcontainerimage'
-        command: 'push'
-        tags: |
-          system
-          inventory
+        command: 'buildAndPush'
+        Dockerfile: '$(Build.SourcesDirectory)/start/system/Dockerfile'
+        tags: 'system'
+    # - task: Docker@2
+    #   displayName: push to docker hub
+    #   inputs:
+    #     containerRegistry: 'Docker_ACR'
+    #     repository: 'jammanaraj/myfirstcontainerimage'
+    #     command: 'push'
+    #     tags: |
+    #       system
+    #       inventory
