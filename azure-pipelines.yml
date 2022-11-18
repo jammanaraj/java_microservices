@@ -42,8 +42,8 @@ stages:
       inputs:
         command: 'build'
         Dockerfile: '$(Build.SourcesDirectory)/start/system/Dockerfile'
-        imageName: jammanaraj/myfirstcontainerimage:system
-        #tags: system
+        tags: jammanaraj/myfirstcontainerimage:system
+        
     - task: PowerShell@2
       inputs:
         targetType: 'inline'
