@@ -34,3 +34,19 @@ stages:
               # Write your PowerShell commands here.
               
               Write-Host "Hello World task2"
+ - stage: Deploy
+   displayName: deploy stage
+   dependsOn: Build
+   jobs:
+     - deployment: Deployementapproval
+       pool:
+        vmImage: ubuntu-latest
+        deploy:
+         steps:
+          - task: PowerShell@2
+            inputs:
+              targetType: 'inline'
+              script: |
+                # Write your PowerShell commands here.
+                
+                Write-Host "Hello World-deployment stage"
