@@ -38,8 +38,8 @@ stages:
    displayName: deploy stage
    dependsOn: Build
    jobs:
-     - deployment: Deploy on uat
-       displayName: Deployonuatenvironment
+     - deployment: Deploy-uat
+       displayName: Deployon uat environment
        environment: uat
        pool:
         name: Azure Pipelines
