@@ -22,7 +22,7 @@ stages:
     steps:
     - task: Maven@4
       inputs:
-        mavenPomFile: '$(System.Defaultworkingdirectory)/start/pom.xml'
+        mavenPomFile: '$(System.Defaultworkingdirectory)/start/system/pom.xml'
         goals: 'clean package'
         publishJUnitResults: false
         javaHomeOption: 'JDKVersion'
@@ -42,7 +42,8 @@ stages:
       inputs:
         command: 'build'
         Dockerfile: '$(Build.SourcesDirectory)/start/system/Dockerfile'
-        tags: system
+        imageName: jammanaraj/myfirstcontainerimage:system
+        #tags: system
     - task: PowerShell@2
       inputs:
         targetType: 'inline'
