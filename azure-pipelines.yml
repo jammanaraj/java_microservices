@@ -13,7 +13,7 @@ variables:
 
 stages:
 - stage: Build
-  displayName: Build image
+  displayName: Build stage
   jobs:
   - job: Build
     displayName: Build
@@ -58,4 +58,4 @@ stages:
         containerRegistry: 'Docker_ACR'
         repository: 'jammanaraj/myfirstcontainerimage'
         command: 'push'
-        tags: 'inventory'
+        tags: 'jammanaraj/myfirstcontainerimage:inventory'
