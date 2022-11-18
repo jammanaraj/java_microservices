@@ -58,4 +58,4 @@ stages:
         containerRegistry: 'Docker_ACR'
         repository: 'jammanaraj/myfirstcontainerimage'
         command: 'push'
-        tags: 'jammanaraj/myfirstcontainerimage:inventory'
+        tags: 'inventory'
