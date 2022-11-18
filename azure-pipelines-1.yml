@@ -35,15 +35,14 @@ stages:
               
               Write-Host "Hello World task2"
  - stage: Deploy
-   displayName: deploy stage
+   displayName: uat release
    dependsOn: Build
    jobs:
      - deployment: Deploy
        displayName: Deployon uat environment
        environment: uat
        pool:
-        name: Azure Pipelines
-        demands: ubuntu-latest
+        vmImage: ubuntu-latest
        strategy: 
         runOnce:
          deploy:
