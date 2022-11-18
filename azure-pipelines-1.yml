@@ -15,3 +15,22 @@ stages:
    jobs:
     - job: Build
       displayName: Build job 
+      pool:
+       vmImage: ubuntu-latest
+      steps:
+        - task: PowerShell@2
+          displayName: task1
+          inputs:
+            targetType: 'inline'
+            script: |
+              # Write your PowerShell commands here.
+              
+              Write-Host "Hello World this is build stage"
+        - task: PowerShell@2
+          displayName: task2
+          inputs:
+            targetType: 'inline'
+            script: |
+              # Write your PowerShell commands here.
+              
+              Write-Host "Hello World task2"
