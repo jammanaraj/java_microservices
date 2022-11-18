@@ -53,7 +53,4 @@ stages:
         command: 'push'
         Dockerfile: '$(Build.SourcesDirectory)/start/inventory/Dockerfile'
         tags: inventory1
-    - task: PowerShell@2
-      inputs:
-        targetType: 'inline'
-        script: 'docker images'
+
