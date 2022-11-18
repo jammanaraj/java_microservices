@@ -38,15 +38,21 @@ stages:
    displayName: deploy stage
    dependsOn: Build
    jobs:
-     - deployment: Deployementapproval
+     - deployment: Deploy on uat
+       displayName: Deploy on uat environment
+       environment: uat
        pool:
-        vmImage: ubuntu-latest
-        deploy:
-         steps:
+        name: Azure Pipelines
+        demands: ubuntu-latest
+       strategy: 
+        runOnce:
+         deploy:
+          steps:
           - task: PowerShell@2
             inputs:
               targetType: 'inline'
               script: |
                 # Write your PowerShell commands here.
                 
-                Write-Host "Hello World-deployment stage"
+                Write-Host "Hello World-pushing into uat evnironment"
+           
