@@ -38,7 +38,7 @@ stages:
    displayName: deploy stage
    dependsOn: Build
    jobs:
-     - deployment: Deploy-uat
+     - deployment: Deploy
        displayName: Deployon uat environment
        environment: uat
        pool:
