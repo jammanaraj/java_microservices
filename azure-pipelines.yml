@@ -40,22 +40,22 @@ stages:
     - task: Docker@2
       displayName: Build system
       inputs:
-        command: 'buildAndPush'
+        command: 'build'
         Dockerfile: '$(Build.SourcesDirectory)/start/system/Dockerfile'
       #  imageName: jammanaraj/system
         tags: system
-    - task: Docker@2
-      inputs:
-        containerRegistry: 'Docker_ACR'
-        repository: 'jammanaraj/myfirstcontainerimage'
-        command: 'buildAndPush'
-        Dockerfile: '$(Build.SourcesDirectory)/start/inventory/Dockerfile'
-        tags: inventory
-
     # - task: Docker@2
-    #   displayName: push to docker hub
     #   inputs:
     #     containerRegistry: 'Docker_ACR'
     #     repository: 'jammanaraj/myfirstcontainerimage'
-    #     command: 'push'
-    #     tags: 'inventory'
+    #     command: 'buildAndPush'
+    #     Dockerfile: '$(Build.SourcesDirectory)/start/inventory/Dockerfile'
+    #     tags: inventory
+
+    - task: Docker@2
+      displayName: push to docker hub
+      inputs:
+        containerRegistry: 'Docker_ACR'
+        repository: 'jammanaraj/myfirstcontainerimage'
+        command: 'push'
+        tags: 'system'
