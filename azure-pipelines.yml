@@ -45,6 +45,8 @@ stages:
     - deployment: DeployontoAzure
       displayName: DeployontoAzure
       environment: azure
+      pool:
+        vmImage: windows-latest
       strategy:
         runOnce:
           deploy:
