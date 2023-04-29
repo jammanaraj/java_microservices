@@ -62,13 +62,13 @@ stages:
                 artifactName: 'drop'
                 downloadPath: '$(System.ArtifactsDirectory)'
 
-            - task: AzureRmWebAppDeployment@4
-              inputs:
-                  ConnectionType: 'AzureRM'
-                  azureSubscription: 'ServiceConnection-Automatic_51fecc24-1d42-418b-bab4-9b3bbf96f566'
-                  appType: 'webApp'
-                  WebAppName: 'javawebappdcs'
-                  packageForLinux: '$(Build.ArtifactStagingDirectory)\start\inventory\target\guide-cloud-azure-inventory.war'
+            # - task: AzureRmWebAppDeployment@4
+            #   inputs:
+            #       ConnectionType: 'AzureRM'
+            #       azureSubscription: 'ServiceConnection-Automatic_51fecc24-1d42-418b-bab4-9b3bbf96f566'
+            #       appType: 'webApp'
+            #       WebAppName: 'javawebappdcs'
+            #       packageForLinux: '$(Build.ArtifactStagingDirectory)\start\inventory\target\guide-cloud-azure-inventory.war'
 
 
     # - task: Docker@2
