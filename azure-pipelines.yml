@@ -43,7 +43,7 @@ stages:
           targetPath: '$(Build.ArtifactStagingDirectory)'
 
 - stage: deploy
-  dependsOn: Build
+#  dependsOn: Build
   displayName: DeployontoAzure
   jobs:
     - deployment: DeployontoAzure
