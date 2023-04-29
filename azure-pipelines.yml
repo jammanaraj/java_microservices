@@ -34,8 +34,8 @@ stages:
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
         Contents: |
-          **/*.war
-          **/*.war
+          **/guide-cloud-azure-inventory.war
+          # **/*.war
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - stage: deploy
@@ -61,8 +61,8 @@ stages:
                   ConnectionType: 'AzureRM'
                   azureSubscription: 'ServiceConnection-Automatic_51fecc24-1d42-418b-bab4-9b3bbf96f566'
                   appType: 'webApp'
-                  WebAppName: 
-                  packageForLinux: '$(System.ArtifactsDirectory)'
+                  WebAppName: 'javawebappdcs'
+                  packageForLinux: '$(System.ArtifactsDirectory)/*.war'
 
 
     # - task: Docker@2
