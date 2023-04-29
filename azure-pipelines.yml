@@ -37,6 +37,10 @@ stages:
           **/guide-cloud-azure-inventory.war
           # **/*.war
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    - task: PublishPipelineArtifact@0
+      inputs:
+          artifactName: 'drop'
+          targetPath: '$(build.artifactStagingDirectory)'
 
 - stage: deploy
   dependsOn: Build
