@@ -40,7 +40,7 @@ stages:
     - task: PublishPipelineArtifact@0
       inputs:
           artifactName: 'drop'
-          targetPath: '$(build.artifactStagingDirectory)'
+          targetPath: '$(Build.ArtifactStagingDirectory)'
 
 - stage: deploy
   dependsOn: Build
@@ -68,7 +68,7 @@ stages:
                   azureSubscription: 'ServiceConnection-Automatic_51fecc24-1d42-418b-bab4-9b3bbf96f566'
                   appType: 'webApp'
                   WebAppName: 'javawebappdcs'
-                  packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.war'
+                  packageForLinux: '$(Build.ArtifactStagingDirectory)\start\inventory\target\guide-cloud-azure-inventory.war'
 
 
     # - task: Docker@2
